@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase.config";
 import axios from "axios";
@@ -19,19 +19,6 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         return (
             signInWithPopup(auth, googleProvider)
-            // .then(result => setUser(result.user))
-            // .catch(error => alert("ERROR", error.code))
-        );
-    }
-    
-    // Github Sign-In
-    const githubProvider = new GithubAuthProvider();
-    const loginWithGithub = () => {
-        setLoading(true);
-        return (
-            signInWithPopup(auth, githubProvider)
-            // .then(result => setUser(result.user))
-            // .catch(error => alert("ERROR",error.code))
         );
     }
 
@@ -40,8 +27,6 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         return (
             signInWithEmailAndPassword(auth, email, password)
-            // .then(result => setUser(result.user))
-            // .catch(error => console.log("Error", error.message))
         );
     }
 
@@ -50,8 +35,6 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         return (
             createUserWithEmailAndPassword(auth, email, password)
-            // .then(result => setUser(result.user))
-            // .catch(error => console.log("Error", error.message))
         );
     }
 
@@ -59,11 +42,6 @@ const AuthProvider = ({children}) => {
     const updateUserProfile = (updateInfo) => {
         setLoading(true);
         return updateProfile(auth.currentUser, updateInfo);
-        // .then(() => {
-            //     setLoading(false);
-            //     navigate("/user-profile");
-            // })         
-        // .catch(error => setErrorMessage(error.message));
     }
 
     // Reset Password
@@ -113,7 +91,6 @@ const AuthProvider = ({children}) => {
         user,
         setUser,
         loginWithGoogle,
-        loginWithGithub,
         loginWithEmailAndPassword,
         createAccount,
         loading,

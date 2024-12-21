@@ -25,9 +25,9 @@ const Register = () => {
             setErrorMessage('Password must be at least 6 characters');
             return;
         };
-        const validPassword = /^(?=.*[a-z])(?=.*[A-Z]).*$/;
+        const validPassword = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/;
         if (!validPassword.test(password)) {
-            setErrorMessage('Password must contain at least one uppercase letter and one lowercase letter');
+            setErrorMessage('Password must contain at least one uppercase letter, one special character & one numeric character');
             return;
         }
 
@@ -42,7 +42,8 @@ const Register = () => {
                     .then(() => navigate("/"))
                     .catch(error => setErrorMessage(error.message));
                 toast.success("Registration Successful!!!",{
-                    position: "top-center"
+                    position: "top-center",
+                    autoClose: 1500
                 });
                 setLoading(false);
             })
