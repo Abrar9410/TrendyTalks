@@ -15,7 +15,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="w-11/12 mx-auto my-6 px-2 py-1 md:py-2 rounded-lg bg-[#575757]">
+        <div className="w-11/12 mx-auto my-6">
             <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2 sm:gap-3">
                     <div className="dropdown">
@@ -37,24 +37,26 @@ const Navbar = () => {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             <li><NavLink to="/">Home</NavLink></li>
-                            <li><NavLink to="/brands">Brands</NavLink></li>
-                            <li><NavLink to="/about-dev">About Dev</NavLink></li>
-                            {user && <li><NavLink to="/user-profile">My Profile</NavLink></li>}
+                            <li><NavLink to="/blogs">All Blogs</NavLink></li>
+                            <li><NavLink to="/featured">Featured</NavLink></li>
+                            <li><NavLink to="/add-blog">Add Blog</NavLink></li>
+                            {user && <li><NavLink to="/wishlist">WishList</NavLink></li>}
                         </ul>
                     </div>
-                    <Link to="/" className="flex max-[305px]:flex-col max-[305px]:gap-0 items-center gap-2">
-                        <img className="w-6 sm:w-8 md:w-10 rounded-full" src={logo} alt="logo" />
-                        <p className="sm:text-lg md:text-xl font-semibold text-white">TrendyTalks</p>
+                    <Link to="/" className="flex max-[305px]:flex-col max-[305px]:gap-0 items-center gap-3">
+                        <img className="w-6 sm:w-8 md:w-10 rounded-md" src={logo} alt="logo" />
+                        <p className="sm:text-lg md:text-xl lg:text-2xl font-bold">TrendyTalks</p>
                     </Link>
                 </div>
                 {
                     location.pathname === "/login" || location.pathname === "/register" ?
                         <div className="w-max bg-white rounded-full"><img src={emptyUser} alt="empty_user" /></div> :
-                        <div className="hidden md:flex justify-center items-center gap-4 text-white">
+                        <div className="hidden md:flex justify-center items-center gap-4">
                             <NavLink to="/" className={({isActive})=>isActive? "underline": "hover:scale-105"}>Home</NavLink>
-                            <NavLink to="/brands" className={({isActive})=>isActive? "underline": "hover:scale-105"}>Brands</NavLink>
-                            <NavLink to="/about-dev" className={({isActive})=>isActive? "underline": "hover:scale-105"}>About Dev</NavLink>
-                            {user && <NavLink to="/user-profile" className={({ isActive }) => isActive ? "underline" : "hover:scale-105"}>My Profile</NavLink>}
+                            <NavLink to="/blogs" className={({isActive})=>isActive? "underline": "hover:scale-105"}>All Blogs</NavLink>
+                            <NavLink to="/featured" className={({isActive})=>isActive? "underline": "hover:scale-105"}>Featured</NavLink>
+                            <NavLink to="/add-blog" className={({isActive})=>isActive? "underline": "hover:scale-105"}>Add Blog</NavLink>
+                            {user && <NavLink to="/wishlist" className={({ isActive }) => isActive ? "underline" : "hover:scale-105"}>WishList</NavLink>}
                         </div>
                 }
                 {
