@@ -65,21 +65,21 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async currentUser => {
             setUser(currentUser);
-            // if (currentUser?.email) {
-            //     await axios.post(
-            //         `${import.meta.env.VITE_API_URL}/jwt`,
-            //         {
-            //             email: currentUser?.email,
-            //         },
-            //         { withCredentials: true }
-            //     )
-            // }
-            // else {
-            //     await axios.get(
-            //         `${import.meta.env.VITE_API_URL}/logout`,
-            //         { withCredentials: true }
-            //     )
-            // }
+            if (currentUser?.email) {
+                await axios.post(
+                    `${import.meta.env.VITE_API_URL}/jwt`,
+                    {
+                        email: currentUser?.email,
+                    },
+                    { withCredentials: true }
+                )
+            }
+            else {
+                await axios.get(
+                    `${import.meta.env.VITE_API_URL}/logout`,
+                    { withCredentials: true }
+                )
+            }
             setLoading(false);
         })
         return () => {
