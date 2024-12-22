@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-// import logo from "../assets/logo.png";
+import logo from "../assets/logo.png";
 import emptyUser from "../assets/user.png";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
@@ -43,7 +43,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link to="/" className="flex max-[305px]:flex-col max-[305px]:gap-0 items-center gap-2">
-                        {/* <img className="w-4 sm:w-6 md:w-8" src={logo} alt="logo" /> */}
+                        <img className="w-6 sm:w-8 md:w-10 rounded-full" src={logo} alt="logo" />
                         <p className="sm:text-lg md:text-xl font-semibold text-white">TrendyTalks</p>
                     </Link>
                 </div>

@@ -19,11 +19,12 @@ const useAxiosSecure = () => {
                 return res;
             },
             error => {
-                toast.error(`Error: ${error.response.status}`)
+                toast.error(`Error: ${error.response.status} --> ${error.response.data.message}`,{
+                    position: "top-center",
+                    autoClose: 1000
+                })
                 if (error.response.status === 401 || error.response.status === 403) {
-                    // logout
                     logOut();
-                    // navigate to login
                     navigate('/login');
                 }
             }
