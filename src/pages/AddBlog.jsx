@@ -1,15 +1,58 @@
 import { useContext, useState } from "react";
 import Header from "../components/Header";
 import { AuthContext } from "../providers/AuthProvider";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import moment from "moment";
 
 
 const AddBlog = () => {
 
     const {user} = useContext(AuthContext);
+    const axiosSecure = useAxiosSecure();
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleAddBlog = e => {
         e.preventDefault();
+        setErrorMessage('');
+        const form = e.target;
+        const title = form.title.value;
+        const thumbnail = form.thumbnail.value;
+        const description = form.description.value;
+        const category = form.category.value;
+        const time = moment().format('lll');
+        const comments= 0;
+        const userName = form.userName.value;
+        const userPhoto = form.userPhoto.value;
+        const userEmail = form.userEmail.value;
+        if (category === 'select a genre') {
+            setErrorMessage('Please select the category of your Blog!');
+            return;
+        }
+        const newBlog = {
+            title,
+            thumbnail,
+            description,
+            category,
+            time,
+            comments,
+            userName,
+            userPhoto,
+            userEmail
+        };
+        axiosSecure.post('/blogs', newBlog)
+        .then(res => {
+            if (res.data.insertedId) {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Blog posted successfully!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                form.reset(); 
+            }
+        })
     }
 
     return (
@@ -32,7 +75,7 @@ const AddBlog = () => {
                             <label className="label">
                                 <span className="font-semibold">Blog Thumbnail</span>
                             </label>
-                            <input type="url" placeholder="cover-image url" name="thumbnail" className="input input-bordered w-full" required />
+                            <input type="utext" placeholder="cover-image url" name="thumbnail" className="input input-bordered w-full" required />
                         </div>
                     </div>
                     <div>
@@ -48,17 +91,18 @@ const AddBlog = () => {
                             </label>
                             <select name="category" className="w-full h-12 rounded-lg px-4 border outline-none">
                                 <option>select category</option>
-                                <option value="Action">Action</option>
-                                <option value="Action-Adventure">Action-Adventure</option>
-                                <option value="Adventure">Adventure</option>
-                                <option value="Board Game">Board Game</option>
-                                <option value="Horror">Horror</option>
-                                <option value="Puzzle">Puzzle</option>
-                                <option value="Role-playing">Role-playing</option>
-                                <option value="RPG">RPG</option>
-                                <option value="Simulation">Simulation</option>
-                                <option value="Strategy">Strategy</option>
+                                <option value="Book & Writing">Book & Writing</option>
+                                <option value="Business">Business</option>
+                                <option value="Fashion & Beauty">Fashion & Beauty</option>
+                                <option value="Food">Food</option>
+                                <option value="Health & Fitness">Health & Fitness</option>
+                                <option value="Inspiration">Inspiration</option>
+                                <option value="Lifestyle">Lifestyle</option>
+                                <option value="Music">Music</option>
+                                <option value="Personal">Personal</option>
+                                <option value="Photography">Photography</option>
                                 <option value="Sports">Sports</option>
+                                <option value="Travel">Travel</option>
                             </select>
                         </div>
                         <div>
@@ -73,7 +117,7 @@ const AddBlog = () => {
                             <label className="label">
                                 <span className="font-semibold">User Image</span>
                             </label>
-                            <input type="url" placeholder="user photo" name="userPhoto" className="input input-bordered w-full" value={user.photoURL} readOnly required />
+                            <input type="text" placeholder="user photo" name="userPhoto" className="input input-bordered w-full" value={user.photoURL} readOnly required />
                         </div>
                         <div>
                             <label className="label">

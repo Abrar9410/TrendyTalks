@@ -3,6 +3,7 @@ import logo from "../assets/logo.png";
 import emptyUser from "../assets/user.png";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Navbar = () => {
@@ -11,7 +12,18 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const handleLogOut = () => {
-        logOut();
+        Swal.fire({
+            title: "Are you sure you want to log out?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, log out!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                logOut();
+            }
+        });
     }
 
     return (
@@ -61,17 +73,14 @@ const Navbar = () => {
                 }
                 {
                     location.pathname === "/login" || location.pathname === "/register" ||
-                    <div className="flex flex-col justify-end items-end gap-1">
-                            <div className="flex max-[270px]:flex-col justify-end items-center max-[290px]:gap-1 gap-2">
-                                {user && <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full border"><img className="w-full h-full rounded-full" src={user.photoURL} alt="user_IMG" /></div>}
-                                {
-                                    user ?
-                                        <button onClick={handleLogOut} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-white text-[#575757] hover:scale-105 shadow-md">Log Out</button>
-                                        : <button onClick={() => navigate("/login")} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-white text-[#575757] hover:scale-105 shadow-md">Log In</button>
-                                }
-                                {!user && <button onClick={() => navigate("/register")} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-white text-[#575757] hover:scale-105 shadow-md">Register</button>}
-                            </div>
-                            {user && <p className="text-xs text-white">{user.email}</p>}
+                    <div className="flex max-[270px]:flex-col justify-end items-center max-[290px]:gap-1 gap-2">
+                        {user && <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full border"><img className="w-full h-full rounded-full" src={user.photoURL} alt="user_IMG" /></div>}
+                        {
+                            user ?
+                                <button onClick={handleLogOut} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-white text-[#575757] hover:scale-105 shadow-md">Log Out</button>
+                                : <button onClick={() => navigate("/login")} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-white text-[#575757] hover:scale-105 shadow-md">Log In</button>
+                        }
+                        {!user && <button onClick={() => navigate("/register")} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-white text-[#575757] hover:scale-105 shadow-md">Register</button>}
                     </div>
                 }
             </div>

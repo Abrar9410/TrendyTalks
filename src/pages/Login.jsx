@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 
 const Login = () => {
@@ -21,6 +22,9 @@ const Login = () => {
         setErrorMessage('');
         loginWithEmailAndPassword(email, password)
             .then(result => {
+                toast.success('Login Successful!', {
+                    autoClose: 2000
+                });
                 setUser(result.user);
                 navigate(location?.state ? location.state : "/");
             })
@@ -31,6 +35,9 @@ const Login = () => {
         setErrorMessage('');
         loginWithGoogle()
         .then(result => {
+            toast.success('Login Successful!', {
+                autoClose: 2000
+            });
             setUser(result.user);
             navigate(location?.state ? location.state : "/");
         })

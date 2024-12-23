@@ -39,12 +39,14 @@ const Register = () => {
                     photoURL: photo
                 }
                 updateUserProfile(profile)
-                    .then(() => navigate("/"))
+                    .then(() => {
+                        toast.success("Registration Successful!!!", {
+                            position: "top-center",
+                            autoClose: 1500
+                        });
+                        navigate("/");
+                    })
                     .catch(error => setErrorMessage(error.message));
-                toast.success("Registration Successful!!!",{
-                    position: "top-center",
-                    autoClose: 1500
-                });
                 setLoading(false);
             })
             .catch(error => setErrorMessage(error.message));
@@ -54,7 +56,12 @@ const Register = () => {
         setErrorMessage('');
         loginWithGoogle()
             .then(result => {
+                toast.success("Registration Successful!!!", {
+                    position: "top-center",
+                    autoClose: 2000
+                });
                 setUser(result.user);
+                navigate("/");
             })
             .catch(error => setErrorMessage(error.message));
     }
