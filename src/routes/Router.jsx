@@ -41,11 +41,13 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/blogs/:id",
-                element: <BlogDetails></BlogDetails>
+                element: <BlogDetails></BlogDetails>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/blogs/${params.id}`)
             },
             {
-                path: "/update-blog",
-                element: <PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>
+                path: "/update-blog/:id",
+                element: <PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/blogs/${params.id}`)
             },
             {
                 path: "/login",

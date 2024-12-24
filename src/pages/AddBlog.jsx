@@ -75,7 +75,7 @@ const AddBlog = () => {
                             <label className="label">
                                 <span className="font-semibold">Blog Thumbnail</span>
                             </label>
-                            <input type="utext" placeholder="cover-image url" name="thumbnail" className="input input-bordered w-full" required />
+                            <input type="text" placeholder="cover-image url" name="thumbnail" className="input input-bordered w-full" required />
                         </div>
                     </div>
                     <div>

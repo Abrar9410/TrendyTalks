@@ -1,29 +1,53 @@
 import { CiHeart } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { toast } from "react-toastify";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 
 
-const BlogCard = ({blog}) => {
+const BlogCard = ({blog, wishList}) => {
 
-    const {_id, thumbnail, category, title, description, userPhoto, userName, time, comments} = blog;
+    const {_id, thumbnail, category, title, description, userEmail, userName, time, comments} = blog;
     const {user} = useContext(AuthContext);
+    const [disabled, setDisabled] = useState(false);
+    const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
 
+    useEffect(() => {
+        if (!user) {
+            return setDisabled(false);
+        }
+        if (user?.email===userEmail) {
+            setDisabled(true);
+        }
+        else {
+            const alreadyAdded = wishList?.find(item => item.blog._id === _id);
+            if (alreadyAdded) {
+                setDisabled(true);
+            }
+            else {
+                setDisabled(false);
+            }
+        }
+    }, [user, wishList])
+
     const handleAddToWishList = id => {
+        if (!user) {
+            navigate("/login");
+        }
         const wishedBlog = {
             blog,
-            wishedBy: user.email
+            addedBy: user.email
         }
-        axiosSecure.post(`/wishlist/:${id}?email=${user.email}`, wishedBlog)
+        axiosSecure.post('/wishlist', wishedBlog)
         .then(res => {
             if (res.data.insertedId) {
                 toast.success('Blog added to your WishList!', {
                     position: "top-center",
                     autoClose: 1500
                 })
+                setDisabled(true);
             }
         })
         .catch(error => {
@@ -44,10 +68,12 @@ const BlogCard = ({blog}) => {
                 <h3 className="font-bold text-lg min-[300px]:text-xl sm:text-2xl xl:text-3xl mt-4">{title}</h3>
                 <p className="my-6">{description.slice(0, 300)}...</p>
                 <div className="flex justify-between items-center">
-                    <Link to={`/${_id}`} className="w-max px-2 py-1 sm:px-3 sm:py-2 border max-sm:text-sm shadow-md hover:scale-105">
+                    <Link to={`/blogs/${_id}`} className="w-max px-2 py-1 sm:px-3 sm:py-2 border max-sm:text-sm shadow-md hover:scale-105">
                         Read More
                     </Link>
-                    <button onClick={()=>handleAddToWishList(_id)} className="btn btn-circle border border-fullBg outline-none btn-xs sm:btn-sm xl:btn-md bg-white sm:text-xl lg:text-2xl shadow-md hover:scale-105">
+                    <button onClick={()=>handleAddToWishList(_id)}
+                            disabled={disabled}
+                            className="btn btn-circle border border-fullBg outline-none btn-xs sm:btn-sm xl:btn-md bg-white sm:text-xl lg:text-2xl shadow-md hover:scale-105 disabled:cursor-not-allowed">
                         <CiHeart />
                     </button>
                 </div>
