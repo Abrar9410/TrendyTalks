@@ -6,10 +6,10 @@ const Footer = () => {
     return (
         <div className="bg-[#575757] p-8">
             <div className="sm: md: lg:w-2/3 mx-auto grid grid-cols-1 gap-5 sm:grid-cols-3 sm:gap-0">
-                <div className="flex flex-col">
-                    <div className="flex items-center max-[305px]:gap-0 gap-3">
+                <div className="flex flex-col max-sm:items-center max-sm:gap-2">
+                    <div className="flex items-center max-[212px]:gap-0 gap-1 sm:gap-2 md:gap-3">
                         <img className="w-6 sm:w-8 md:w-10 rounded-md" src={logo} alt="logo" />
-                        <p className="sm:text-lg md:text-xl lg:text-2xl font-bold">TrendyTalks</p>
+                        <p className="sm:text-lg md:text-xl lg:text-2xl text-blue-700 font-bold">TrendyTalks</p>
                     </div>
                     <p className="text-white text-center sm:text-start sm:pt-6">
                         The best Game review site. We have the best critics

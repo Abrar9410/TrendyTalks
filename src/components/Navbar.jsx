@@ -55,9 +55,9 @@ const Navbar = () => {
                             {user && <li><NavLink to="/wishlist">WishList</NavLink></li>}
                         </ul>
                     </div>
-                    <Link to="/" className="flex max-[305px]:flex-col max-[305px]:gap-0 items-center gap-3">
+                    <Link to="/" className="flex max-[240px]:flex-col max-[240px]:gap-0 items-center gap-1 sm:gap-2 md:gap-3">
                         <img className="w-6 sm:w-8 md:w-10 rounded-md" src={logo} alt="logo" />
-                        <p className="sm:text-lg md:text-xl lg:text-2xl font-bold">TrendyTalks</p>
+                        <p className="sm:text-lg md:text-xl lg:text-2xl text-blue-700 font-bold">TrendyTalks</p>
                     </Link>
                 </div>
                 {
@@ -73,7 +73,7 @@ const Navbar = () => {
                 }
                 {
                     location.pathname === "/login" || location.pathname === "/register" ||
-                    <div className="flex max-[270px]:flex-col justify-end items-center max-[290px]:gap-1 gap-2">
+                    <div className="flex max-[300px]:flex-col justify-end items-center max-[290px]:gap-1 gap-2">
                         {user && <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full border"><img className="w-full h-full rounded-full" src={user.photoURL} alt="user_IMG" /></div>}
                         {
                             user ?
