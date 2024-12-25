@@ -89,13 +89,13 @@ const AddBlog = () => {
                             <label className="label">
                                 <span className="font-semibold">Category</span>
                             </label>
-                            <select name="category" className="w-full h-12 rounded-lg px-4 border outline-none">
+                            <select name="category" className="w-full h-12 rounded-lg px-4 border outline-none cursor-pointer">
                                 <option>select category</option>
-                                <option value="Book & Writing">Book & Writing</option>
+                                <option value="Book and Writing">Book and Writing</option>
                                 <option value="Business">Business</option>
-                                <option value="Fashion & Beauty">Fashion & Beauty</option>
+                                <option value="Fashion and Beauty">Fashion and Beauty</option>
                                 <option value="Food">Food</option>
-                                <option value="Health & Fitness">Health & Fitness</option>
+                                <option value="Health and Fitness">Health and Fitness</option>
                                 <option value="Inspiration">Inspiration</option>
                                 <option value="Lifestyle">Lifestyle</option>
                                 <option value="Music">Music</option>
