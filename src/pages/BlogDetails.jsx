@@ -60,7 +60,7 @@ const BlogDetails = () => {
     return (
         <div className="mb-12">
             <figure className="w-11/12 mx-auto">
-                <img src={thumbnail} alt="blog_coverIMG" className="w-full"/>
+                <img src={thumbnail} alt="blog_coverIMG" className="w-full max-h-[90vh]"/>
             </figure>
             <div className="w-11/12 sm:w-10/12 lg:w-9/12 mx-auto py-4 px-2 flex flex-col items-center">
                 <p className="font-semibold text-lg w-max border-b-2 border-red-600 pb-[1px]">{category}</p>
@@ -94,11 +94,11 @@ const BlogDetails = () => {
                                         <img className="w-full h-full rounded-full" src={comment.commenterPhoto} alt="user_IMG" />
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <h4 className="font-bold text-lg">{comment.commenterName}</h4>
+                                        <h4 className="font-bold min-[250px]:text-lg">{comment.commenterName}</h4>
                                         <p className="text-xs">{comment.time}</p>
                                     </div>
                                 </div>
-                                <p className="pl-8 lg:pl-10 pt-4">{comment.comment}</p>
+                                <p className="pl-10 lg:pl-12 pt-4 max-[250px]:text-sm">{comment.comment}</p>
                             </div>
                         )
                     }

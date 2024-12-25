@@ -25,7 +25,7 @@ const AddBlog = () => {
         const userName = form.userName.value;
         const userPhoto = form.userPhoto.value;
         const userEmail = form.userEmail.value;
-        if (category === 'select a genre') {
+        if (category === 'select category') {
             setErrorMessage('Please select the category of your Blog!');
             return;
         }
@@ -46,7 +46,7 @@ const AddBlog = () => {
                 Swal.fire({
                     position: "center",
                     icon: "success",
-                    title: "Blog posted successfully!",
+                    title: "Blog Posted Successfully!",
                     showConfirmButton: false,
                     timer: 1500
                 });
