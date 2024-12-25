@@ -14,6 +14,7 @@ const BlogDetails = () => {
     const [commentsCount, setCommentsCount] = useState(comments);
     const [allComments, setAllComments] = useState([]);
     const { user, loading } = useContext(AuthContext);
+    const [dataLoading, setDataLoading] = useState(true);
     const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
 
@@ -22,10 +23,12 @@ const BlogDetails = () => {
     }, [])
 
     const fetchAllComments = () => {
+        setDataLoading(true);
         axios.get(`${import.meta.env.VITE_API_URL}/comments/${_id}`)
             .then(res => {
                 setAllComments(res.data);
                 setCommentsCount(res.data.length);
+                setDataLoading(false);
             })
     }
 
@@ -53,7 +56,7 @@ const BlogDetails = () => {
             })
     }
 
-    if (loading) {
+    if (loading || dataLoading) {
         return <Loading></Loading>
     }
 

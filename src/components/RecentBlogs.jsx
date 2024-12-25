@@ -19,7 +19,7 @@ const RecentBlogs = () => {
         })
         if (user) {
             axiosSecure.get(`/wishlist/${user.email}`)
-                .then(res => setWishList(res.data))
+            .then(res => setWishList(res.data))
         }
         else {
             setWishList([]);
