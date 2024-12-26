@@ -22,7 +22,7 @@ const WishList = () => {
     }, [user])
 
     const fetchWishList = () => {
-        axiosSecure.get(`/wishlist/${user.email}`)
+        axiosSecure.get(`/wishlist/?email=${user.email}`)
         .then(res => {
             setWishList(res.data);
             setDataLoading(false);
@@ -98,7 +98,7 @@ const WishList = () => {
             selector: (row) => row.blog.userName,
             sortable: true,
             cell: (row) => (
-                <div className="flex justify-center items-center gap-2">
+                <div className="flex justify-center items-center gap-1 lg:gap-2">
                     <img src={row.blog.userPhoto} alt={row.blog.userName[0]} className="w-6 h-6 rounded-full" />
                     <span>{row.blog.userName}</span>
                 </div>
@@ -152,7 +152,7 @@ const WishList = () => {
                 alignItems: "center",
                 display: "flex",          // Ensure the cells use Flexbox
                 border: "1px solid orange",
-                padding: "10px 0",
+                padding: "10px 1px",
                 textWrap: "wrap"
             },
         },

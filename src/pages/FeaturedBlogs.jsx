@@ -62,7 +62,7 @@ const FeaturedBlogs = () => {
             selector: (row) => row.userName,
             sortable: true,
             cell: (row) => (
-                <div className="flex justify-center items-center gap-2">
+                <div className="flex justify-center items-center gap-1 lg:gap-2">
                     <img src={row.userPhoto} alt={row.userName} className="w-6 h-6 rounded-full" />
                     <span>{row.userName}</span>
                 </div>
@@ -106,7 +106,7 @@ const FeaturedBlogs = () => {
                 fontWeight: "bold",
                 fontSize: "1.12rem",
                 border: "1px solid skyblue",
-                padding: "10px 0"
+                padding: "10px 1px"
             },
         },
         cells: {

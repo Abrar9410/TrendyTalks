@@ -47,11 +47,11 @@ const BlogDetails = () => {
             commenterEmail: user.email,
             commenterPhoto: user.photoURL
         };
+        form.reset();
         axiosSecure.post('/comments', newComment)
             .then(res => {
                 if (res.data.insertedId) {
                     fetchAllComments();
-                    form.reset();
                 }
             })
     }
@@ -86,22 +86,22 @@ const BlogDetails = () => {
                     </p>
                 </div>
                 <hr className="w-2/3 mt-12"/>
-                <div className="w-11/12 mx-auto mt-12 space-y-2">
+                <div className="w-11/12 mx-auto mt-12 p-8 space-y-2 bg-black border-2 border-blue-700 rounded-xl">
                     {
                         commentsCount === 0?
-                        <p className="text-center text-xl">No Comment to Show</p>:
+                        <p className="text-center text-xl text-cyan-500">No Comments Yet</p>:
                         allComments.map(comment => 
-                            <div key={comment._id} className="p-4 sm:p-8">
+                            <div key={comment._id} className="px-4 sm:px-8 py-3">
                                 <div className="flex items-center gap-2">
                                     <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full border">
                                         <img className="w-full h-full rounded-full" src={comment.commenterPhoto} alt="user_IMG" />
                                     </div>
                                     <div className="flex flex-col gap-1">
-                                        <h4 className="font-bold min-[250px]:text-lg">{comment.commenterName}</h4>
-                                        <p className="text-xs">{comment.time}</p>
+                                        <h4 className="font-bold min-[250px]:text-lg text-red-500">{comment.commenterName}</h4>
+                                        <p className="text-xs text-white">{comment.time}</p>
                                     </div>
                                 </div>
-                                <p className="pl-10 lg:pl-12 pt-4 max-[250px]:text-sm">{comment.comment}</p>
+                                <p className="pl-10 lg:pl-12 pt-3 max-[250px]:text-sm text-cyan-500">{comment.comment}</p>
                             </div>
                         )
                     }
