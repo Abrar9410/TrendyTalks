@@ -68,12 +68,12 @@ const BlogCard = ({blog, wishList}) => {
                 <h3 className="font-bold text-lg min-[300px]:text-xl sm:text-2xl xl:text-3xl mt-4">{title}</h3>
                 <p className="my-6">{description.slice(0, 300)}...</p>
                 <div className="flex justify-between items-center">
-                    <Link to={`/blogs/${_id}`} className="w-max px-2 py-1 sm:px-3 sm:py-2 border max-sm:text-sm shadow-md hover:scale-105">
+                    <Link to={`/blogs/${_id}`} className="w-max px-2 py-1 sm:px-3 sm:py-2 border max-sm:text-sm rounded-md shadow-md bg-black text-cyan-400 hover:scale-105">
                         Read More
                     </Link>
                     <button onClick={()=>handleAddToWishList(_id)}
                             disabled={disabled}
-                            className="btn btn-circle border border-fullBg outline-none btn-xs sm:btn-sm xl:btn-md bg-white sm:text-xl lg:text-2xl shadow-md hover:scale-105 disabled:cursor-not-allowed">
+                            className="btn btn-circle border border-fullBg outline-none btn-xs sm:btn-sm xl:btn-md bg-white text-red-500 sm:text-xl lg:text-2xl shadow-md hover:scale-105 hover:bg-red-500 hover:text-white disabled:cursor-not-allowed disabled:bg-gray-300">
                         <CiHeart />
                     </button>
                 </div>

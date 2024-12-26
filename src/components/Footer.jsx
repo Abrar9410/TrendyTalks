@@ -12,7 +12,7 @@ const Footer = () => {
                         <p className="sm:text-lg md:text-xl lg:text-2xl text-blue-600 font-bold">TrendyTalks</p>
                     </div>
                     <p className="text-white text-center sm:text-start sm:pt-6">
-                        The best blogging site. Keep blogging. Gain knowledge, spread knowledge.
+                        Join a community where thoughts take flight and conversations thrive.
                     </p>
                 </div>
                 <div className="text-center">

@@ -65,11 +65,11 @@ const Navbar = () => {
                         location.pathname === "/login" || location.pathname === "/register" ?
                             <div className="w-max bg-white rounded-full"><img src={emptyUser} alt="empty_user" /></div> :
                             <div className="hidden md:flex justify-center items-center gap-4">
-                                <NavLink to="/" className={({ isActive }) => isActive ? "text-cyan-400 underline" : "text-white hover:scale-105"}>Home</NavLink>
-                                <NavLink to="/blogs" className={({ isActive }) => isActive ? "text-cyan-400 underline" : "text-white hover:scale-105"}>All Blogs</NavLink>
-                                <NavLink to="/featured" className={({ isActive }) => isActive ? "text-cyan-400 underline" : "text-white hover:scale-105"}>Featured</NavLink>
-                                <NavLink to="/add-blog" className={({ isActive }) => isActive ? "text-cyan-400 underline" : "text-white hover:scale-105"}>Add Blog</NavLink>
-                                {user && <NavLink to="/wishlist" className={({ isActive }) => isActive ? "text-cyan-400 underline" : "text-white hover:scale-105"}>WishList</NavLink>}
+                                <NavLink to="/" className={({ isActive }) => isActive ? "text-cyan-400 underline font-semibold" : "text-white hover:scale-105"}>Home</NavLink>
+                                <NavLink to="/blogs" className={({ isActive }) => isActive ? "text-cyan-400 underline font-semibold" : "text-white hover:scale-105"}>All Blogs</NavLink>
+                                <NavLink to="/featured" className={({ isActive }) => isActive ? "text-cyan-400 underline font-semibold" : "text-white hover:scale-105"}>Featured</NavLink>
+                                <NavLink to="/add-blog" className={({ isActive }) => isActive ? "text-cyan-400 underline font-semibold" : "text-white hover:scale-105"}>Add Blog</NavLink>
+                                {user && <NavLink to="/wishlist" className={({ isActive }) => isActive ? "text-cyan-400 underline font-semibold" : "text-white hover:scale-105"}>WishList</NavLink>}
                             </div>
                     }
                     {
@@ -78,10 +78,10 @@ const Navbar = () => {
                             {user && <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full border"><img className="w-full h-full rounded-full" src={user.photoURL} alt="user_IMG" /></div>}
                             {
                                 user ?
-                                    <button onClick={handleLogOut} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-white text-[#575757] hover:scale-105 shadow-md">Log Out</button>
-                                    : <button onClick={() => navigate("/login")} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-white text-[#575757] hover:scale-105 shadow-md">Log In</button>
+                                    <button onClick={handleLogOut} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-red-500 text-black hover:scale-105 shadow-md">Log Out</button>
+                                    : <button onClick={() => navigate("/login")} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-cyan-500 text-black hover:scale-105 shadow-md">Log In</button>
                             }
-                            {!user && <button onClick={() => navigate("/register")} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-white text-[#575757] hover:scale-105 shadow-md">Register</button>}
+                            {!user && <button onClick={() => navigate("/register")} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-cyan-500 text-black hover:scale-105 shadow-md">Register</button>}
                         </div>
                     }
                 </div>

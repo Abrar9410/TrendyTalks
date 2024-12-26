@@ -19,7 +19,7 @@ const Newsletter = () => {
                 <p className="text-pink-500 text-sm sm:text-base lg:text-xl mb-6">Get immediate email notification for every future Post!</p>
                 <form onSubmit={handleSubscribe} className="flex flex-col gap-4 items-center">
                     <input className="w-full px-4 sm:px-7 py-3 rounded-xl border-2 border-blue-700" type="email" name="" id="" placeholder="Enter your email" />
-                    <input type="submit" value="Subscribe" className="w-full px-4 sm:px-7 py-3 rounded-xl text-blue-700 font-bold bg-gradient-to-r from-pink-500 to-[#f8b500]"/>
+                    <input type="submit" value="Subscribe" className="w-full px-4 sm:px-7 py-3 rounded-xl text-blue-700 font-bold bg-gradient-to-r from-pink-500 to-[#f8b500] cursor-pointer hover:scale-105"/>
                 </form>
             </div>            
         </div>
