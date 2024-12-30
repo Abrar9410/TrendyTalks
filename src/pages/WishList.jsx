@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
@@ -12,20 +12,16 @@ import { toast } from "react-toastify";
 
 const WishList = () => {
 
-    const [wishList, setWishList] = useState([]);
-    const {user} = useContext(AuthContext);
+    const { user, wishList, setWishList, loading, setLoading } = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
-    const [dataLoading, setDataLoading] = useState(true);
 
-    useEffect(() => {
-        fetchWishList();
-    }, [user])
 
     const fetchWishList = () => {
-        axiosSecure.get(`/wishlist/?email=${user.email}`)
+        setLoading(true);
+        axiosSecure.get(`/wishlist?email=${user.email}`)
         .then(res => {
             setWishList(res.data);
-            setDataLoading(false);
+            setLoading(false);
         })
     }
 
@@ -158,7 +154,7 @@ const WishList = () => {
         },
     };
 
-    if (dataLoading) {
+    if (loading) {
         return <Loading></Loading>
     }
 

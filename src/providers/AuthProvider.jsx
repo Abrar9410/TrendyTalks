@@ -11,6 +11,7 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [userEmail, setUserEmail] = useState('');
+    const [wishList, setWishList] = useState([]);
     console.log(loading, user);
 
     // Google Sign-In
@@ -66,21 +67,33 @@ const AuthProvider = ({children}) => {
         const unsubscribe = onAuthStateChanged(auth, async currentUser => {
             setUser(currentUser);
             if (currentUser?.email) {
-                await axios.post(
+                const {data} = await axios.post(
                     `${import.meta.env.VITE_API_URL}/jwt`,
                     {
-                        email: currentUser?.email,
+                        email: currentUser.email,
                     },
                     { withCredentials: true }
                 )
+                if (data.success) {
+                    axios.get(`${import.meta.env.VITE_API_URL}/wishlist?email=${currentUser.email}`,
+                        {withCredentials: true}
+                    )
+                    .then(res => {
+                        setWishList(res.data);
+                        setLoading(false);
+                    })
+                }
             }
             else {
-                await axios.get(
+                const {data} = await axios.get(
                     `${import.meta.env.VITE_API_URL}/logout`,
                     { withCredentials: true }
                 )
+                if (data.success) {
+                    setWishList([]);
+                    setLoading(false);
+                }
             }
-            setLoading(false);
         })
         return () => {
             unsubscribe();
@@ -99,6 +112,8 @@ const AuthProvider = ({children}) => {
         userEmail,
         setUserEmail,
         resetPassword,
+        wishList,
+        setWishList,
         logOut
     }
 

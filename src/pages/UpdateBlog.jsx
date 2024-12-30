@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const UpdateBlog = () => {
 
     const blog = useLoaderData();
-    const { _id, thumbnail, category, title, description, userName, userPhoto, userEmail, time, comments } = blog;
+    const { _id, thumbnail, category, title, description, userName, userPhoto, userEmail } = blog;
     const axiosSecure = useAxiosSecure();
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate()

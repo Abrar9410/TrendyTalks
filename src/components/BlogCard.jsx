@@ -83,7 +83,7 @@ const BlogCard = ({blog, wishList}) => {
                         <span className="font-bold">{userName}</span>
                     </p>
                     <span>-</span>
-                    <span>{time.slice(0, (time.length - 7))}</span>
+                    <span>{time.slice(0, 13)}</span>
                     <span>-</span>
                     <p>
                         <span>{comments===0?"No":comments}</span>

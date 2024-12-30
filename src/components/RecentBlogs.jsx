@@ -1,36 +1,21 @@
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
-import { AuthContext } from "../providers/AuthProvider";
-import useAxiosSecure from "../hooks/useAxiosSecure";
 import Loading from "./Loading";
 
 
-const RecentBlogs = () => {
+const RecentBlogs = ({wishList}) => {
     
     const [recentBlogs, setRecentBlogs] = useState([]);
-    const [wishList, setWishList] = useState([]);
-    const {user} = useContext(AuthContext);
     const [dataLoading, setDataLoading] = useState(true);
-    const axiosSecure = useAxiosSecure()
     
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/blogs?limit=6`)
         .then(res => {
             setRecentBlogs(res.data);
-            if (user) {
-                axiosSecure.get(`/wishlist/?email=${user.email}`)
-                    .then(res => {
-                        setWishList(res.data);
-                        setDataLoading(false);
-                    })
-            }
-            else {
-                setWishList([]);
-                setDataLoading(false);
-            }
+            setDataLoading(false);
         })
-    },[user])
+    },[])
 
     if (dataLoading) {
         return <Loading></Loading>

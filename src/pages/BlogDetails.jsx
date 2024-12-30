@@ -78,7 +78,7 @@ const BlogDetails = () => {
                         </div>
                     </div>
                     <span>-</span>
-                    <span>{time.slice(0, (time.length - 7))}</span>
+                    <span>{time.slice(0, 13)}</span>
                     <span>-</span>
                     <p>
                         <span>{commentsCount === 0 ? "No" : commentsCount}</span>
