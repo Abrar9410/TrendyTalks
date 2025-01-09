@@ -30,5 +30,5 @@ TrendyTalks is a Blog-Website where users can easily read, write, post and discu
    * 5) Signed-In users can shortlist/like/wishlist blogs and can see them by visiting the wishlist page.
 
 
-[Live Link](https://asssignment-11-trendy-talks-blog-site.netlify.app/)
+[Live Link](https://trendy-talks-blog-site.netlify.app/)
 
