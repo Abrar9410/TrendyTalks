@@ -80,7 +80,7 @@ const Navbar = () => {
                             {user && <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full border"><img className="w-full h-full rounded-full" src={user.photoURL} alt="user_IMG" /></div>}
                             {
                                 user ?
-                                    <button onClick={handleLogOut} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-red-500 text-black hover:scale-105 shadow-md">Log Out</button>
+                                    <button onClick={handleLogOut} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-red-600 text-white hover:scale-105 shadow-md">Log Out</button>
                                     : <button onClick={() => navigate("/login")} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-cyan-500 text-black hover:scale-105 shadow-md">Log In</button>
                             }
                             {!user && <button onClick={() => navigate("/register")} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-cyan-500 text-black hover:scale-105 shadow-md">Register</button>}

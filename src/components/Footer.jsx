@@ -18,10 +18,10 @@ const Footer = () => {
                 <div className="text-center">
                     <h6 className="text-white text-lg font-bold pb-2 sm:pb-4">Company</h6>
                     <ul className="text-white/70 font-light">
-                        <Link className="hover:underline"><li>About Us</li></Link>
-                        <Link className="hover:underline"><li>Contact Us</li></Link>
-                        <Link className="hover:underline"><li>Careers</li></Link>
-                        <Link className="hover:underline"><li>Advertisement</li></Link>
+                        <Link to="/about-dev" className="hover:underline"><li>About Dev</li></Link>
+                        <Link to="/contact" className="hover:underline"><li>Contact Us</li></Link>
+                        <Link to="/contact" className="hover:underline"><li>Careers</li></Link>
+                        <Link to="/contact" className="hover:underline"><li>Advertisement</li></Link>
                     </ul>
                 </div>
                 <div className="text-center">
@@ -34,7 +34,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="flex justify-center items-center gap-4 sm:gap-6 mt-8">
-                <Link to="https://x.com/AbrarS896">
+                <Link to="https://x.com/AbrarS896" target="_blank">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -45,10 +45,10 @@ const Footer = () => {
                             d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
                     </svg>
                 </Link>
-                <Link to="https://github.com/Abrar9410" className="text-2xl bg-white rounded-full">
+                <Link to="https://github.com/Abrar9410" target="_blank" className="text-2xl bg-white rounded-full">
                     <FaGithub />
                 </Link>
-                <Link to="https://www.facebook.com/profile.php?id=61551634958282">
+                <Link to="https://www.facebook.com/profile.php?id=61551634958282" target="_blank">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
