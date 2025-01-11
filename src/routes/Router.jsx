@@ -13,6 +13,9 @@ import UpdateBlog from "../pages/UpdateBlog";
 import PrivateRoute from "./PrivateRoute";
 import Contact from "../pages/Contact";
 import AboutDev from "../pages/AboutDev";
+import TermsOfService from "../pages/TermsOfService";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
+import CookiePolicy from "../pages/CookiePolicy";
 
 
 const Router = createBrowserRouter([
@@ -66,6 +69,18 @@ const Router = createBrowserRouter([
             {
                 path: "/about-dev",
                 element: <AboutDev></AboutDev>
+            },
+            {
+                path: "/terms-of-service",
+                element: <TermsOfService></TermsOfService>
+            },
+            {
+                path: "/privacy-policy",
+                element: <PrivacyPolicy></PrivacyPolicy>
+            },
+            {
+                path: "/cookie-policy",
+                element: <CookiePolicy></CookiePolicy>
             },
         ]
     },
