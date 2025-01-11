@@ -27,7 +27,7 @@ const PopularBlogs = ({wishList}) => {
                     Popular Blogs
                 </h2>
                 <p className="w-11/12 sm:w-9/12 md:w-7/12 lg:w-1/2 text-sm sm:text-base text-orange-400 font-semibold">
-                    Check out the most Liked blogs. See what people are loving!.
+                    Check out the most Liked blogs. See what people are loving!
                 </p>
             </div>
             <div className="mb-12 w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">

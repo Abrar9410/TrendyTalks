@@ -30,7 +30,7 @@ const Navbar = () => {
         <div className="bg-black sticky top-0 z-10">
             <div className="w-11/12 mx-auto py-3 sm:py-4 lg:py-5 xl:py-6">
                 <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3 md:gap-0">
                         <div className="dropdown">
                             <div tabIndex={0} role="button" className="btn-ghost md:hidden">
                                 <svg
@@ -48,11 +48,12 @@ const Navbar = () => {
                             </div>
                             <ul
                                 tabIndex={0}
-                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-max p-2 shadow">
                                 <li><NavLink to="/">Home</NavLink></li>
                                 <li><NavLink to="/blogs">All Blogs</NavLink></li>
                                 <li><NavLink to="/featured">Featured</NavLink></li>
-                                <li><NavLink to="/add-blog">Add Blog</NavLink></li>
+                                <li><NavLink to="/contact">Contact Us</NavLink></li>
+                                {user && <li><NavLink to="/add-blog">Add Blog</NavLink></li>}
                                 {user && <li><NavLink to="/wishlist">WishList</NavLink></li>}
                             </ul>
                         </div>
@@ -64,11 +65,12 @@ const Navbar = () => {
                     {
                         location.pathname === "/login" || location.pathname === "/register" ?
                             <div className="w-max bg-white rounded-full"><img src={emptyUser} alt="empty_user" /></div> :
-                            <div className="hidden md:flex justify-center items-center gap-4">
+                            <div className="hidden md:flex justify-center items-center gap-2 lg:gap-4 text-sm lg:text-base">
                                 <NavLink to="/" className={({ isActive }) => isActive ? "text-cyan-400 underline font-semibold" : "text-white hover:scale-105"}>Home</NavLink>
                                 <NavLink to="/blogs" className={({ isActive }) => isActive ? "text-cyan-400 underline font-semibold" : "text-white hover:scale-105"}>All Blogs</NavLink>
                                 <NavLink to="/featured" className={({ isActive }) => isActive ? "text-cyan-400 underline font-semibold" : "text-white hover:scale-105"}>Featured</NavLink>
-                                <NavLink to="/add-blog" className={({ isActive }) => isActive ? "text-cyan-400 underline font-semibold" : "text-white hover:scale-105"}>Add Blog</NavLink>
+                                <NavLink to="/contact" className={({ isActive }) => isActive ? "text-cyan-400 underline font-semibold" : "text-white hover:scale-105"}>Contact Us</NavLink>
+                                {user && <NavLink to="/add-blog" className={({ isActive }) => isActive ? "text-cyan-400 underline font-semibold" : "text-white hover:scale-105"}>Add Blog</NavLink>}
                                 {user && <NavLink to="/wishlist" className={({ isActive }) => isActive ? "text-cyan-400 underline font-semibold" : "text-white hover:scale-105"}>WishList</NavLink>}
                             </div>
                     }
