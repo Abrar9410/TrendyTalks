@@ -13,6 +13,7 @@ const AuthProvider = ({children}) => {
     const [userEmail, setUserEmail] = useState('');
     const [wishList, setWishList] = useState([]);
     console.log(loading, user);
+    const [isDarkMode, setIsDarkMode] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches); //Temporary- For this app only
 
     // Google Sign-In
     const googleProvider = new GoogleAuthProvider();
@@ -114,6 +115,8 @@ const AuthProvider = ({children}) => {
         resetPassword,
         wishList,
         setWishList,
+        isDarkMode,
+        setIsDarkMode,
         logOut
     }
 

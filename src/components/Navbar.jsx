@@ -4,6 +4,7 @@ import emptyUser from "../assets/user.png";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
+import ThemeToggler from "./ThemeToggler";
 
 
 const Navbar = () => {
@@ -28,7 +29,7 @@ const Navbar = () => {
 
     return (
         <div className="bg-black sticky top-0 z-10">
-            <div className="w-11/12 mx-auto py-3 sm:py-4 lg:py-5 xl:py-6">
+            <div className="w-11/12 mx-auto py-3 sm:py-4 lg:py-5 xl:py-6 relative">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2 sm:gap-3 md:gap-0">
                         <div className="dropdown">
@@ -86,6 +87,9 @@ const Navbar = () => {
                             {!user && <button onClick={() => navigate("/register")} className="outline-none max-[350px]:p-1 px-3 py-2 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-cyan-500 text-black hover:scale-105 shadow-md">Register</button>}
                         </div>
                     }
+                </div>
+                <div className="absolute -bottom-7 min-[350px]:-bottom-8 right-0">
+                    <ThemeToggler></ThemeToggler>
                 </div>
             </div>
         </div>

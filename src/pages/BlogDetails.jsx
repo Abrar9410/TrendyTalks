@@ -61,7 +61,7 @@ const BlogDetails = () => {
     }
 
     return (
-        <div className="mb-12">
+        <div className="mt-8 mb-12">
             <figure className="w-11/12 mx-auto">
                 <img src={thumbnail} alt="blog_coverIMG" className="w-full max-h-[90vh]"/>
             </figure>

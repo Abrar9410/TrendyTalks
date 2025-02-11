@@ -59,7 +59,7 @@ const BlogCard = ({blog, wishList}) => {
     }
 
     return (
-        <div className="border border-blue-700 rounded-sm shadow-xl">
+        <div className="border border-blue-700 rounded-sm bg-white dark:bg-black shadow-xl">
             <figure className="rounded-t-sm">
                 <img src={thumbnail} alt="Blog_Thumbnail" className="w-full sm:h-[40vw] lg:h-[25vw] xl:h-[20vw] rounded-t-sm"/>
             </figure>
@@ -68,7 +68,7 @@ const BlogCard = ({blog, wishList}) => {
                 <h3 className="font-bold text-lg min-[300px]:text-xl sm:text-2xl xl:text-3xl mt-4">{title}</h3>
                 <p className="my-6">{description.slice(0, 300)}...</p>
                 <div className="flex justify-between items-center">
-                    <Link to={`/blogs/${_id}`} className="w-max px-2 py-1 sm:px-3 sm:py-2 border max-sm:text-sm rounded-md shadow-md bg-black text-cyan-400 hover:scale-105">
+                    <Link to={`/blogs/${_id}`} className="w-max px-2 py-1 sm:px-3 sm:py-2 border max-sm:text-sm rounded-md shadow-md bg-black dark:bg-white text-cyan-400 dark:text-cyan-500 hover:scale-105">
                         Read More
                     </Link>
                     <button onClick={()=>handleAddToWishList(_id)}
