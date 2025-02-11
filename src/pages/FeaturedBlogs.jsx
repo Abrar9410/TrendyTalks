@@ -1,14 +1,16 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import DataTable from "react-data-table-component";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 
 const FeaturedBlogs = () => {
 
     const [featuredBlogs, setFeaturedBlogs] = useState([]);
     const [dataLoading, setDataLoading] = useState(true);
+    const {isDarkMode} = useContext(AuthContext);
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_API_URL}/featured-blogs`)
@@ -83,7 +85,7 @@ const FeaturedBlogs = () => {
             sortable: false,
             cell: (row) => (
                 <div>
-                    <Link to={`/blogs/${row._id}`} className="w-max py-1 px-2 rounded-lg bg-black text-cyan-400 hover:scale-105">Read More</Link>
+                    <Link to={`/blogs/${row._id}`} className="w-max py-1 px-2 rounded-lg bg-black dark:bg-white text-cyan-400 dark:text-cyan-500 hover:scale-105">Read More</Link>
                 </div>
             ),
             minWidth: "100px",
@@ -102,7 +104,8 @@ const FeaturedBlogs = () => {
                 justifyContent: "center", 
                 alignItems: "center",
                 textAlign: "center", 
-                backgroundColor: "#f3f4f6",
+                backgroundColor: isDarkMode ? "gray" : "#f3f4f6",
+                color: isDarkMode ? "white" : "black",
                 fontWeight: "bold",
                 fontSize: "1.12rem",
                 border: "1px solid skyblue",
@@ -114,6 +117,8 @@ const FeaturedBlogs = () => {
                 justifyContent: "center", 
                 alignItems: "center",   
                 display: "flex",          // Ensure the cells use Flexbox
+                backgroundColor: isDarkMode ? "black" : "white",
+                color: isDarkMode ? "white" : "black",
                 border: "1px solid skyblue", 
                 padding: "10px 0",
                 textWrap: "wrap"

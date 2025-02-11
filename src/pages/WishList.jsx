@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
@@ -13,6 +12,7 @@ import { toast } from "react-toastify";
 const WishList = () => {
 
     const { user, wishList, setWishList, loading, setLoading } = useContext(AuthContext);
+    const {isDarkMode} = useContext(AuthContext);
     const axiosSecure = useAxiosSecure();
 
 
@@ -38,7 +38,6 @@ const WishList = () => {
                 axiosSecure.delete(`/wishlist/${id}`)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
-                        setDataLoading(true);
                         fetchWishList();
                         toast.success('Blog removed from your WishList', {
                             position: "top-center",
@@ -115,7 +114,7 @@ const WishList = () => {
             sortable: false,
             cell: (row) => (
                 <div className="flex flex-col justify-center items-center gap-2">
-                    <Link to={`/blogs/${row.blog._id}`} className="w-max py-1 px-2 rounded-lg bg-black text-cyan-400 hover:scale-105">Read More</Link>
+                    <Link to={`/blogs/${row.blog._id}`} className="w-max py-1 px-2 rounded-lg bg-black dark:bg-white text-cyan-400 dark:text-cyan-500 hover:scale-105">Read More</Link>
                     <button onClick={() => handleRemove(row._id)} className="w-max py-1 px-2 rounded-lg bg-red-500 text-black hover:scale-105">Remove</button>
                 </div>
             ),
@@ -135,7 +134,8 @@ const WishList = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 textAlign: "center",
-                backgroundColor: "#f3f4f6",
+                backgroundColor: isDarkMode ? "gray" : "#f3f4f6",
+                color: isDarkMode ? "white" : "black",
                 fontWeight: "bold",
                 fontSize: "1.12rem",
                 border: "1px solid orange",
@@ -147,6 +147,8 @@ const WishList = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 display: "flex",          // Ensure the cells use Flexbox
+                backgroundColor: isDarkMode ? "black" : "white",
+                color: isDarkMode ? "white" : "black",
                 border: "1px solid orange",
                 padding: "10px 1px",
                 textWrap: "wrap"
