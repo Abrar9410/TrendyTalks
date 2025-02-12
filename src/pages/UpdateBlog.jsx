@@ -49,7 +49,7 @@ const UpdateBlog = () => {
 
     return (
         <div>
-            <div className="w-10/12 mx-auto mb-12 border rounded-xl sm:p-8 shadow-xl">
+            <div className="w-10/12 mx-auto my-12 border rounded-xl sm:p-8 shadow-xl bg-white dark:bg-black">
                 <form onSubmit={handleUpdateBlog} className="sm:space-y-8">
                     <div className="grid sm:grid-cols-2 gap-4">
                         <div>
@@ -114,7 +114,7 @@ const UpdateBlog = () => {
                         </div>
                     </div>
                     <p>{errorMessage}</p>
-                    <input type="submit" value="UPDATE" className="btn w-full h-12 rounded-lg border bg-green-500 text-lg font-semibold" />
+                    <input type="submit" value="UPDATE" className="btn w-full h-12 rounded-lg border-none bg-green-500 text-white text-lg font-semibold outline-none" />
                 </form>
             </div>
         </div>

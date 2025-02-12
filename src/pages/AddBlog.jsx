@@ -62,7 +62,7 @@ const AddBlog = () => {
                 subtitle="Here is the place where you can write blogs on topic of your own choice. Express &
                         share your thoughts, knowledge & experience, or you can advertise your product!">    
             </Header>
-            <div className="w-10/12 mx-auto mb-12 border rounded-xl sm:p-8 shadow-xl">
+            <div className="w-10/12 mx-auto mb-12 border rounded-xl sm:p-8 shadow-xl bg-white dark:bg-black">
                 <form onSubmit={handleAddBlog} className="sm:space-y-8">
                     <div className="grid sm:grid-cols-2 gap-4">
                         <div>
@@ -127,7 +127,7 @@ const AddBlog = () => {
                         </div>
                     </div>
                     <p>{errorMessage}</p>
-                    <input type="submit" value="Post Blog" className="btn w-full h-12 rounded-lg border bg-green-500 text-lg font-semibold" />
+                    <input type="submit" value="Post Blog" className="btn w-full h-12 rounded-lg bg-green-500 text-white text-lg font-semibold outline-none border-none" />
                 </form>
             </div>
         </div>
