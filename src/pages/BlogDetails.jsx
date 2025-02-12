@@ -61,11 +61,11 @@ const BlogDetails = () => {
     }
 
     return (
-        <div className="mt-8 mb-12">
+        <div className="mt-10 mb-12">
             <figure className="w-11/12 mx-auto">
                 <img src={thumbnail} alt="blog_coverIMG" className="w-full max-h-[90vh]"/>
             </figure>
-            <div className="w-11/12 sm:w-10/12 lg:w-9/12 mx-auto py-4 px-2 flex flex-col items-center">
+            <div className="w-11/12 sm:w-10/12 lg:w-9/12 mx-auto py-4 px-2 flex flex-col items-center text-black dark:text-white">
                 <p className="font-semibold text-lg w-max border-b-2 border-red-600 pb-[1px]">{category}</p>
                 <h3 className="max-w-[95%] font-bold text-center text-lg min-[300px]:text-xl sm:text-2xl xl:text-3xl mt-4">{title}</h3>
                 <p className="my-6">{description}</p>

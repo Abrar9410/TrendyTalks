@@ -64,9 +64,9 @@ const BlogCard = ({blog, wishList}) => {
                 <img src={thumbnail} alt="Blog_Thumbnail" className="w-full sm:h-[40vw] lg:h-[25vw] xl:h-[20vw] rounded-t-sm"/>
             </figure>
             <div className="py-4 px-2">
-                <p className="font-semibold text-lg w-max border-b-2 border-red-600 pb-[1px]">{category}</p>
-                <h3 className="font-bold text-lg min-[300px]:text-xl sm:text-2xl xl:text-3xl mt-4">{title}</h3>
-                <p className="my-6">{description.slice(0, 300)}...</p>
+                <p className="font-semibold text-lg text-black dark:text-white w-max border-b-2 border-red-600 pb-[1px]">{category}</p>
+                <h3 className="font-bold text-lg text-black dark:text-white min-[300px]:text-xl sm:text-2xl xl:text-3xl mt-4">{title}</h3>
+                <p className="my-6 text-black dark:text-white">{description.slice(0, 300)}...</p>
                 <div className="flex justify-between items-center">
                     <Link to={`/blogs/${_id}`} className="w-max px-2 py-1 sm:px-3 sm:py-2 border max-sm:text-sm rounded-md shadow-md bg-black dark:bg-white text-cyan-400 dark:text-cyan-500 hover:scale-105">
                         Read More
@@ -77,7 +77,7 @@ const BlogCard = ({blog, wishList}) => {
                         <CiHeart />
                     </button>
                 </div>
-                <div className="text-xs sm:text-sm flex flex-col sm:flex-row justify-between items-center mt-6">
+                <div className="text-xs sm:text-sm text-black dark:text-white flex flex-col sm:flex-row justify-between items-center mt-6">
                     <p>
                         <span>by </span>
                         <span className="font-bold">{userName}</span>

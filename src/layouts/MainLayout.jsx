@@ -1,9 +1,11 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import useScrollRestoration from "../hooks/useScrollRestoration";
 
 
 const MainLayout = () => {
+    useScrollRestoration();
     return (
         <>
             <Navbar></Navbar>
