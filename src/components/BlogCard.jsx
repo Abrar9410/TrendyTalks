@@ -65,8 +65,10 @@ const BlogCard = ({blog, wishList}) => {
             </figure>
             <div className="py-4 px-2">
                 <p className="font-semibold text-lg text-black dark:text-white w-max border-b-2 border-red-600 pb-[1px]">{category}</p>
-                <h3 className="font-bold text-lg text-black dark:text-white min-[300px]:text-xl sm:text-2xl xl:text-3xl mt-4">{title}</h3>
-                <p className="my-6 text-black dark:text-white">{description.slice(0, 300)}...</p>
+                <h3 className="font-bold text-lg text-black dark:text-white min-[300px]:text-xl sm:text-2xl xl:text-3xl mt-4 min-h-[120px] min-[375px]:min-h-[90px] min-[475px]:min-h-[64px] sm:min-h-[136px] min-[840px]:min-h-[104px] lg:min-h-[168px] xl:min-h-[188px] min-[1406px]:min-h-[144px] min-[1770px]:min-h-[116px]">
+                    {title}
+                </h3>
+                <p className="mb-6 text-black dark:text-white">{description.slice(0, 310)}...</p>
                 <div className="flex justify-between items-center">
                     <Link to={`/blogs/${_id}`} className="w-max px-2 py-1 sm:px-3 sm:py-2 border max-sm:text-sm rounded-md shadow-md bg-black dark:bg-white text-cyan-400 dark:text-cyan-500 hover:scale-105">
                         Read More
