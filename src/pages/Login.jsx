@@ -55,7 +55,7 @@ const Login = () => {
 
     return (
         <div className="">
-            <div className="w-10/12 sm:w-2/3 xl:w-1/3 mx-auto border border-base-200 p-8 bg-white rounded-lg shadow-xl my-8">
+            <div className="w-10/12 sm:w-2/3 xl:w-1/3 mx-auto border border-base-200 p-8 bg-white dark:bg-black text-black dark:text-white rounded-lg shadow-xl my-8">
                 <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold">Login to Your Account</h2>
                 <hr className="my-4"/>
                 <form onSubmit={handleLogin} className="px-5 flex flex-col gap-2">
@@ -79,7 +79,7 @@ const Login = () => {
                     </div>
                     <div className="form-control gap-4 mt-4 items-center">
                         <p className="text-red-600">{errorMessage}</p>
-                        <button className="btn bg-cyan-500 text-black outline-none w-full hover:scale-105 hover:bg-cyan-500">Login</button>
+                        <button className="btn bg-cyan-500 text-white outline-none w-full hover:scale-105 hover:bg-cyan-500">Login</button>
                         <p className="text-center">Don't Have an Account? <Link to="/register" className="text-blue-500">Register</Link></p>
                         <p onClick={handleGoogleLogin} className="cursor-pointer hover:scale-105 py-1 px-2 rounded-lg flex justify-center items-center gap-1 bg-[#575757] text-white w-max">
                             <img src={googleLogo} className="w-3 h-3" alt="Google-logo" />
